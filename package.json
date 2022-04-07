@@ -1,0 +1,44 @@
+{
+  "name": "ts-react-webpack-ssr",
+  "version": "1.0.0",
+  "description": "React Node TypeScript",
+  "scripts": {
+    "clean": "rimraf build",
+    "build": "npm run clean && cross-env NODE_ENV=production webpack --mode production",
+    "dev:client": "cross-env NODE_ENV=development webpack-dev-server",
+    "dev:server": "cross-env NODE_ENV=development nodemon --watch './**/*.ts' --exec 'ts-node' server/server.ts",
+    "dev": "npm-run-all --parallel dev:*",
+    "start": "cross-env NODE_ENV=production node build/server.js"
+  },
+  "keywords": [
+    "React",
+    "Node",
+    "TypeScript",
+    "Webpack"
+  ],
+  "author": "Mohamed Samara (https://github.com/mohamedsamara)",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/express": "^4.17.11",
+    "@types/node": "^14.14.35",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.3",
+    "cross-env": "^7.0.3",
+    "html-webpack-plugin": "^5.5.0",
+    "nodemon": "^2.0.15",
+    "npm-run-all": "^4.1.5",
+    "ts-loader": "^8.0.18",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.2.3",
+    "webpack": "^5.26.3",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^4.8.1",
+    "webpack-node-externals": "^2.5.2"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
