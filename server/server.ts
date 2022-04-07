@@ -5,6 +5,8 @@ const app = express();
 
 app.use(express.static(path.resolve(__dirname, "./static")));
 
+console.log(process.env.NODE_ENV);
+
 if (process.env.NODE_ENV === "production") {
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "./static/index.html"));

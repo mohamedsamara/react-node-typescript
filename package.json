@@ -6,7 +6,7 @@
     "clean": "rimraf build",
     "build": "npm run clean && cross-env NODE_ENV=production webpack --mode production",
     "dev:client": "cross-env NODE_ENV=development webpack-dev-server",
-    "dev:server": "cross-env NODE_ENV=development nodemon --watch './**/*.ts' --exec 'ts-node' server/server.ts",
+    "dev:server": "nodemon",
     "dev": "npm-run-all --parallel dev:*",
     "start": "cross-env NODE_ENV=production node build/server.js"
   },
