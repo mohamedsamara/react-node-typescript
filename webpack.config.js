@@ -64,10 +64,14 @@ const clientConfig = {
           configFile: "tsconfig.client.json",
         },
       },
+      {
+        test: /\.scss$/,
+        use: ["style-loader", "css-loader", "sass-loader"],
+      },
     ],
   },
   resolve: {
-    extensions: [".tsx", ".ts", ".js"],
+    extensions: [".tsx", ".ts", ".js", ".css", ".scss"],
   },
   plugins: [
     new webpack.DefinePlugin({
