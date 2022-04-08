@@ -12,4 +12,5 @@ module.exports = {
   utils: `${root}/utils`,
   build: `${root}/build`,
   js: `js`,
+  css: `css`,
 };

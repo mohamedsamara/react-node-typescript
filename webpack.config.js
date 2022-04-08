@@ -2,6 +2,7 @@ const webpack = require("webpack");
 const dotenv = require("dotenv");
 const nodeExternals = require("webpack-node-externals");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const { isDev, paths } = require("./utils");
 
@@ -66,7 +67,18 @@ const clientConfig = {
       },
       {
         test: /\.(scss|sass)$/,
-        use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
+        use: [
+          isDev ? "style-loader" : MiniCssExtractPlugin.loader,
+          {
+            loader: "css-loader",
+          },
+          {
+            loader: "postcss-loader",
+          },
+          {
+            loader: "sass-loader",
+          },
+        ],
       },
     ],
   },
@@ -110,5 +122,14 @@ const clientConfig = {
     },
   },
 };
+
+if (!isDev) {
+  config.plugins.push(
+    new MiniCssExtractPlugin({
+      filename: `${paths.css}/[name].css`,
+      chunkFilename: `${paths.css}/[id].css`,
+    })
+  );
+}
 
 module.exports = [serverConfig, clientConfig];
