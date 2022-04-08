@@ -65,8 +65,8 @@ const clientConfig = {
         },
       },
       {
-        test: /\.scss$/,
-        use: ["style-loader", "css-loader", "sass-loader"],
+        test: /\.(scss|sass)$/,
+        use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
       },
     ],
   },

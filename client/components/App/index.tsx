@@ -10,7 +10,12 @@ const App: React.FC = () => {
       );
   }, []);
 
-  return <p>Hello!</p>;
+  return (
+    <div>
+      <p>Hello!</p>
+      <input type={"text"} />
+    </div>
+  );
 };
 
 export default App;
