@@ -1,5 +1,6 @@
 const webpack = require("webpack");
 const dotenv = require("dotenv");
+const ESLintPlugin = require("eslint-webpack-plugin");
 
 const { paths } = require("../utils");
 
@@ -8,15 +9,15 @@ module.exports = {
   context: paths.client,
   entry: "./index.tsx",
   resolve: {
-    extensions: [".tsx", ".ts", ".js", ".css", ".scss"],
     alias: {
-      components: "client/components",
+      "@": `${paths.root}/client`,
     },
+    extensions: [".ts", ".tsx", ".js", ".css", ".scss"],
   },
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.(ts|tsx)$/,
         loader: "ts-loader",
         exclude: /node_modules/,
         options: {
@@ -27,7 +28,8 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      "process.env": JSON.stringify(dotenv.config().parsed), // it will automatically pick up key values from .env file
+      "process.env": JSON.stringify(dotenv.config().parsed),
     }),
+    new ESLintPlugin({ eslintPath: require.resolve("eslint") }),
   ],
 };

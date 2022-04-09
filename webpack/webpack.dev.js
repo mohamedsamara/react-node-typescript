@@ -1,4 +1,3 @@
-const webpack = require("webpack");
 const { merge } = require("webpack-merge");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
@@ -23,7 +22,6 @@ module.exports = merge(common, {
     ],
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       title: process.env.APP_NAME || "React Node TypeScript",
       template: `${paths.public}/index.html`,
