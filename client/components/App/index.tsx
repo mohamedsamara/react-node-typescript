@@ -1,19 +1,31 @@
-import React, { useEffect } from "react";
-import { add } from "@/utils/math";
-import Button from "@/components/Button";
+import React, { FC } from "react";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
-const App: React.FC = () => {
-  useEffect(() => {
-    fetch("/api/test").then((res) => res.json());
-    add(1, 2);
-  }, []);
+import Login from "@/pages/Login";
+import Dashboard from "@/pages/Dashboard";
+import NoMatch from "@/components/NoMatch";
+import RequireAuth from "@/components/RequireAuth";
+import Layout from "@/components/Layout";
 
+const App: FC = () => {
   return (
-    <div>
-      <p>Hello!</p>
-      <input type={"text"} />
-      <Button />
-    </div>
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route
+            path="/dashboard"
+            element={
+              <RequireAuth>
+                <Dashboard />
+              </RequireAuth>
+            }
+          />
+
+          <Route path="*" element={<NoMatch />} />
+        </Routes>
+      </Layout>
+    </Router>
   );
 };
 
