@@ -1,6 +1,8 @@
 import React from "react";
 import { useLocation, Navigate } from "react-router-dom";
 
+import Layout from "@/components/Layout";
+
 interface RequireAuthProps {
   children: JSX.Element;
 }
@@ -15,7 +17,7 @@ const RequireAuth = (props: RequireAuthProps) => {
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
-  return children;
+  return <Layout>{children}</Layout>;
 };
 
 export default RequireAuth;

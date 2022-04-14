@@ -1,3 +1,14 @@
-body {
+html,
+body,
+#root {
+  height: 100%;
+}
+
+main {
+  flex: 1;
+  min-height: 100%;
+}
+
+a {
   color: $black;
 }

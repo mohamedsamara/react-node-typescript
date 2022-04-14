@@ -5,26 +5,23 @@ import Login from "@/pages/Login";
 import Dashboard from "@/pages/Dashboard";
 import NoMatch from "@/components/NoMatch";
 import RequireAuth from "@/components/RequireAuth";
-import Layout from "@/components/Layout";
 
 const App: FC = () => {
   return (
     <Router>
-      <Layout>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route
-            path="/dashboard"
-            element={
-              <RequireAuth>
-                <Dashboard />
-              </RequireAuth>
-            }
-          />
-
-          <Route path="*" element={<NoMatch />} />
-        </Routes>
-      </Layout>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="/dashboard"
+          element={
+            <RequireAuth>
+              <Dashboard />
+            </RequireAuth>
+          }
+        />
+        <Route path="*" element={<NoMatch />} />
+      </Routes>
     </Router>
   );
 };
