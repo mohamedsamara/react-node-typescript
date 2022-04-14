@@ -1,8 +1,11 @@
 const webpack = require("webpack");
 const dotenv = require("dotenv");
 const ESLintPlugin = require("eslint-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const { paths } = require("../utils");
+
+const imagesBuild = `${paths.build}/static/images`;
 
 module.exports = {
   target: "web",
@@ -31,5 +34,8 @@ module.exports = {
       "process.env": JSON.stringify(dotenv.config().parsed),
     }),
     new ESLintPlugin({ eslintPath: require.resolve("eslint") }),
+    new CopyWebpackPlugin({
+      patterns: [{ from: `${paths.public}/images`, to: imagesBuild }],
+    }),
   ],
 };

@@ -14,4 +14,5 @@ module.exports = {
   build: `${root}/build`,
   js: `js`,
   css: `css`,
+  images: `images`,
 };
