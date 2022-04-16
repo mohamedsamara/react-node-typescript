@@ -5,15 +5,14 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const { paths } = require("../utils");
 
-const imagesBuild = `${paths.build}/static/images`;
-
 module.exports = {
   target: "web",
   context: paths.client,
   entry: "./index.tsx",
   resolve: {
     alias: {
-      "@": `${paths.root}/client`,
+      "@": `${paths.client}`,
+      images: `${paths.public}/${paths.images}`,
     },
     extensions: [".ts", ".tsx", ".js", ".css", ".scss"],
   },
@@ -35,7 +34,12 @@ module.exports = {
     }),
     new ESLintPlugin({ eslintPath: require.resolve("eslint") }),
     new CopyWebpackPlugin({
-      patterns: [{ from: `${paths.public}/images`, to: imagesBuild }],
+      patterns: [
+        {
+          from: `${paths.public}/${paths.images}`,
+          to: `${paths.images_build}`,
+        },
+      ],
     }),
   ],
 };

@@ -12,3 +12,12 @@ main {
 a {
   color: $black;
 }
+
+.logo {
+  background-image: $money;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+}

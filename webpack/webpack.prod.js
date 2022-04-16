@@ -12,14 +12,14 @@ const clientConfig = merge(common, {
   devtool: "source-map",
   output: {
     publicPath,
-    path: `${paths.build}/static`,
+    path: `${paths.static}`,
     filename: `${paths.js}/[name].[contenthash:8].js`,
     chunkFilename: `${paths.js}/[name].[contenthash:8].chunk.js`,
   },
   module: {
     rules: [
       {
-        test: /\.(scss|sass)$/,
+        test: /\.(scss|sass|css)$/,
         use: [
           MiniCssExtractPlugin.loader,
           {
@@ -32,6 +32,24 @@ const clientConfig = merge(common, {
             loader: "sass-loader",
           },
         ],
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif|svg|ico|webp|bmp|tiff)$/,
+        type: "asset/resource",
+        generator: {
+          outputPath: paths.images,
+          publicPath: `${paths.images}/`,
+          filename: "[name]-[hash][ext]",
+        },
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        type: "asset/resource",
+        generator: {
+          outputPath: paths.fonts,
+          publicPath: `${paths.fonts}/`,
+          filename: "[name]-[hash][ext]",
+        },
       },
     ],
   },
