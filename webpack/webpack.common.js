@@ -14,7 +14,7 @@ module.exports = {
       "@": `${paths.client}`,
       images: `${paths.assets}/${paths.images}`,
     },
-    extensions: [".ts", ".tsx", ".js", ".css", ".scss"],
+    extensions: [".ts", ".tsx", ".js", "jsx", "json", ".css", ".scss"],
   },
   module: {
     rules: [

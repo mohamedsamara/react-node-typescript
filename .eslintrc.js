@@ -23,6 +23,8 @@ module.exports = {
     "no-console": "off",
     "comma-dangle": "off",
     "react/jsx-filename-extension": "off",
+    "react/prop-types": "off",
+    "@typescript-eslint/no-var-requires": "off",
     "prettier/prettier": [
       "error",
       {

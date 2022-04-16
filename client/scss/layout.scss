@@ -4,6 +4,10 @@ body,
   height: 100%;
 }
 
+body {
+  font-family: $font-family-body;
+}
+
 main {
   flex: 1;
   min-height: 100%;

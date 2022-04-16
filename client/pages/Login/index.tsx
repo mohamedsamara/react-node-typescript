@@ -11,7 +11,7 @@ const Login: FC = () => {
       </div>
       <div className="h-100 d-flex flex-column justify-content-center right-column">
         <form className="login-form">
-          <h1 className="mb-5 font-weight-light fs-4">Log n to Robinmood</h1>
+          <h1 className="mb-5 font-weight-light fs-4">Log in to Robinmood</h1>
 
           <div className="mb-4">
             <label className="mb-2">Email</label>
