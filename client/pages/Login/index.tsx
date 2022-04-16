@@ -7,7 +7,7 @@ const Login: FC = () => {
   return (
     <div className="h-100 d-flex flex-column flex-md-row align-items-center justify-content-between login-page">
       <div className="w-50 d-none d-md-block left-column">
-        <img src={PALNET_BANNER} className="login-banner" />
+        <img src={PALNET_BANNER} alt="planet logo" className="login-banner" />
       </div>
       <div className="h-100 d-flex flex-column justify-content-center right-column">
         <form className="login-form">
