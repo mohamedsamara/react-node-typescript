@@ -12,7 +12,7 @@ module.exports = {
   resolve: {
     alias: {
       "@": `${paths.client}`,
-      images: `${paths.public}/${paths.images}`,
+      images: `${paths.assets}/${paths.images}`,
     },
     extensions: [".ts", ".tsx", ".js", ".css", ".scss"],
   },
@@ -36,7 +36,7 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: `${paths.public}/${paths.images}`,
+          from: `${paths.assets}/${paths.images}`,
           to: `${paths.images_build}`,
         },
       ],

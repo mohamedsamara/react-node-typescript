@@ -1,11 +1,13 @@
 import React, { FC } from "react";
 import { Link } from "react-router-dom";
 
+import PALNET_BANNER from "images/planet.jpg";
+
 const Login: FC = () => {
   return (
     <div className="h-100 d-flex flex-column flex-md-row align-items-center justify-content-between login-page">
       <div className="w-50 d-none d-md-block left-column">
-        <img src="images/planet.jpg" className="login-banner" />
+        <img src={PALNET_BANNER} className="login-banner" />
       </div>
       <div className="h-100 d-flex flex-column justify-content-center right-column">
         <form className="login-form">

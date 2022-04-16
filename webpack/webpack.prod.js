@@ -56,7 +56,7 @@ const clientConfig = merge(common, {
   plugins: [
     new HtmlWebpackPlugin({
       title: process.env.APP_NAME || "React Node TypeScript",
-      template: `${paths.public}/index.html`,
+      template: `${paths.assets}/index.html`,
       scriptLoading: "defer",
       minify: {
         collapseWhitespace: true,
