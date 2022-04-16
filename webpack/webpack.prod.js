@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const nodeExternals = require("webpack-node-externals");
+const WebpackPwaManifest = require("webpack-pwa-manifest");
 
 const { paths, publicPath } = require("../utils");
 const common = require("./webpack.common");
@@ -69,6 +70,35 @@ const clientConfig = merge(common, {
         trimCustomFragments: true,
       },
     }),
+    new WebpackPwaManifest({
+      name: process.env.APP_NAME || "React Node TypeScript",
+      short_name: "RNT",
+      description: "RNT",
+      background_color: "#000",
+      theme_color: "#000",
+      inject: true,
+      ios: true,
+      icons: [
+        {
+          src: `${paths.assets}/images/pwa.png`,
+          destination: "images",
+          sizes: [72, 96, 128, 144, 192, 384, 512],
+        },
+        {
+          src: `${paths.assets}/images/pwa.png`,
+          sizes: [120, 152, 167, 180],
+          destination: "images",
+          ios: true,
+        },
+        {
+          src: `${paths.assets}/images/pwa.png`,
+          size: 1024,
+          destination: "images",
+          ios: "startup",
+        },
+      ],
+    }),
+    // android-chrome-512x512.png
     new MiniCssExtractPlugin({
       filename: `${paths.css}/[name].css`,
       chunkFilename: `${paths.css}/[id].css`,
