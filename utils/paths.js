@@ -5,11 +5,12 @@ const IMAGES = "images";
 const FONTS = "fonts";
 const BUILD = `${root}/build`;
 const STATIC = `${BUILD}/static`;
+const ClIENT = `${root}/client`;
 
 const paths = {
   root: `${root}`,
   assets: `${root}/assets`,
-  client: `${root}/client`,
+  client: `${ClIENT}`,
   config: `${root}/config`,
   logs: `${root}/logs`,
   public: `${root}/public`,
@@ -24,6 +25,7 @@ const paths = {
   fonts: `${FONTS}`,
   images_build: `${STATIC}/${IMAGES}`,
   fonts_build: `${STATIC}/${FONTS}`,
+  workbox: `${ClIENT}/workbox/index.ts`,
 };
 
 module.exports = paths;

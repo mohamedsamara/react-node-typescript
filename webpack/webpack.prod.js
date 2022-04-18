@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const nodeExternals = require("webpack-node-externals");
 const WebpackPwaManifest = require("webpack-pwa-manifest");
+const { InjectManifest } = require("workbox-webpack-plugin");
 
 const { paths, publicPath } = require("../utils");
 const common = require("./webpack.common");
@@ -75,7 +76,7 @@ const clientConfig = merge(common, {
       short_name: "RNT",
       description: "RNT",
       background_color: "#000",
-      theme_color: "#000",
+      theme_color: "#111",
       inject: true,
       ios: true,
       icons: [
@@ -98,7 +99,10 @@ const clientConfig = merge(common, {
         },
       ],
     }),
-    // android-chrome-512x512.png
+    new InjectManifest({
+      swSrc: paths.workbox,
+      swDest: "service-worker.js",
+    }),
     new MiniCssExtractPlugin({
       filename: `${paths.css}/[name].css`,
       chunkFilename: `${paths.css}/[id].css`,
