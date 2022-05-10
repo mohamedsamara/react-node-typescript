@@ -18,6 +18,10 @@
   ],
   "author": "Mohamed Samara (https://github.com/mohamedsamara)",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mohamedsamara/react-node-typescript/issues"
+  },
+  "homepage": "https://github.com/mohamedsamara/react-node-typescript#readme",
   "devDependencies": {
     "@types/express": "^4.17.11",
     "@types/node": "^14.14.35",
