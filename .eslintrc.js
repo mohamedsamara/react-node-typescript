@@ -8,10 +8,6 @@ module.exports = {
   },
   plugins: ["prettier", "react", "react-hooks", "jsx-a11y"],
   extends: ["plugin:@typescript-eslint/recommended", "prettier"],
-  globals: {
-    Atomics: "readonly",
-    SharedArrayBuffer: "readonly",
-  },
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: "module",
