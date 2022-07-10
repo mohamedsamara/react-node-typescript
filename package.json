@@ -11,10 +11,10 @@
     "start": "cross-env NODE_ENV=production node build/server.js"
   },
   "keywords": [
-    "React",
-    "Node",
-    "TypeScript",
-    "Webpack"
+    "react",
+    "node",
+    "typescript",
+    "webpack"
   ],
   "author": "Mohamed Samara (https://github.com/mohamedsamara)",
   "license": "MIT",
