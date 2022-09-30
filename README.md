@@ -27,24 +27,24 @@
 
 ## Quick start
 
-1.  Clone this repo using `git clone https://github.com/mohamedsamara/react-node-typescript.git`
-2.  Move to the directory: `cd <PROJECT_NAME>`.<br />
-3.  Run `yarn install` in order to install dependencies.<br />
+1. Clone this repo using `git clone https://github.com/mohamedsamara/react-node-typescript.git`
+2. Move to the directory: `cd <PROJECT_NAME>`.<br />
+3. Run `yarn install` in order to install dependencies.<br />
 
 ## Start development
 
 ```
-$ yarn run dev
+yarn run dev
 ```
 
 ## Simple build for production
 
 ```
-$ yarn build
+yarn build
 ```
 
 ## Run build for production
 
 ```
-$ yarn start
+yarn start
 ```
